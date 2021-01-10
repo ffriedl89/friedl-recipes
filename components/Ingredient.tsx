@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Ingredient as IngredientType } from '../queries/Recipe.graphql';
+import { IngredientItem, MeasurementUnits, Scalars } from '../queries/Recipe.graphql';
 
 const StyledIngredientLineItem = styled.li`
   display: grid;
@@ -13,7 +13,11 @@ const StyledNumber = styled.span`
   text-align: right;
 `;
 
-type IngredientProps = Partial<IngredientType>;
+interface IngredientProps {
+  measurement: Scalars['Float'];
+  unit: MeasurementUnits;
+  ingredientItem?: Pick<IngredientItem, "name" | "bestPlaceToBuy"> | null;
+}
 
 export const Ingredient = ({ measurement, unit, ingredientItem }: IngredientProps) => {
   return <StyledIngredientLineItem>

@@ -13,7 +13,7 @@ export type ResolverContext = {
   res?: ServerResponse
 }
 
-function createApolloClient(context?: ResolverContext) {
+function createApolloClient() {
   return new ApolloClient({
     uri: 'https://api-eu-central-1.graphcms.com/v2/ckjpnzxc4la3y01z1fplqd8oj/master',
     headers: {
@@ -26,11 +26,8 @@ function createApolloClient(context?: ResolverContext) {
 
 export function initializeApollo(
   initialState: any = null,
-  // Pages with Next.js data fetching methods, like `getStaticProps`, can send
-  // a custom context which will be used by `SchemaLink` to server render pages
-  context?: ResolverContext
 ) {
-  const _apolloClient = apolloClient ?? createApolloClient(context)
+  const _apolloClient = apolloClient ?? createApolloClient()
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state
   // get hydrated here
