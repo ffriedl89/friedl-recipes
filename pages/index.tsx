@@ -7,7 +7,6 @@ import { initializeApollo } from "../lib/apollo";
 import { Layout } from "../components/Layout";
 import { Hero } from "../components/Hero";
 import styled from "styled-components";
-import React from "react";
 import Link from "next/link";
 import { Heading } from "../components/Heading";
 

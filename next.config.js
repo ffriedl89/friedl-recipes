@@ -1,4 +1,6 @@
-module.exports = {
+const withPreact = require('next-plugin-preact')
+
+module.exports = withPreact({
   webpack(config, options) {
     config.module.rules.push({
       test: /\.graphql$/,
@@ -14,4 +16,4 @@ module.exports = {
 
     return config
   },
-}
+})

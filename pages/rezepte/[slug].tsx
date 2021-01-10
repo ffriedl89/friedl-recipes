@@ -10,7 +10,6 @@ import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 import { Heading } from "../../components/Heading";
 import { Ingredient } from '../../components/Ingredient';
-import React from "react";
 import { BackNav } from "../../components/BackNav";
 import { Layout } from "../../components/Layout";
 import { HeaderBar } from "../../components/HeaderBar";
