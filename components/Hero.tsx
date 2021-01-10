@@ -13,7 +13,7 @@ export const Hero = () => {
   return <StyledHero>
     
     <Heading visual={1} semantic={1} align="center">
-      Monika's Rezepte
+      Monikas Rezepte
     </Heading>
     <img width="200" height="200" src="salad.svg" />
   </StyledHero>

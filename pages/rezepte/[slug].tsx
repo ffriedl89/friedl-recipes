@@ -24,11 +24,11 @@ const StyledInstructions = styled.div`
   }
 
   & > * + * {
-    margin-top: 2.5rem;
+    margin-top: 1.25rem;
   }
 
   p {
-    columns: 40ch 3;
+    columns: 60ch 2;
     line-height: 1.25;
   }
 
