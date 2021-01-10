@@ -17,7 +17,7 @@ function createApolloClient() {
   return new ApolloClient({
     uri: 'https://api-eu-central-1.graphcms.com/v2/ckjpnzxc4la3y01z1fplqd8oj/master',
     headers: {
-      authorization: `Bearer ${process.env.FRIEDL_RECIPES_DRAFT_TOKEN}`
+      authorization: `Bearer ${process.env.FRIEDL_RECIPES_TOKEN}`
     },
     ssrMode: typeof window === 'undefined',
     cache: new InMemoryCache(),
