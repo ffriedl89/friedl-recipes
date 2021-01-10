@@ -17,13 +17,13 @@ import { HeaderBar } from "../../components/HeaderBar";
 
 //#region styled components
 const StyledInstructions = styled.div`
-  * {
+  & > * {
     font-family: 'EB Garamond', serif;
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  * + * {
+  & > * + * {
     margin-top: 2.5rem;
   }
 
