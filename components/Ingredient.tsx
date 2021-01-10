@@ -14,8 +14,8 @@ const StyledNumber = styled.span`
 `;
 
 interface IngredientProps {
-  measurement: Scalars['Float'];
-  unit: MeasurementUnits;
+  measurement?: Scalars['Float'] | null;
+  unit?: MeasurementUnits | null;
   ingredientItem?: Pick<IngredientItem, "name" | "bestPlaceToBuy"> | null;
 }
 
