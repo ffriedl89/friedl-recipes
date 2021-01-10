@@ -13,24 +13,13 @@ export type ResolverContext = {
   res?: ServerResponse
 }
 
-function createIsomorphLink(context: ResolverContext = {}) {
-  if (typeof window === 'undefined') {
-    const { SchemaLink } = require('@apollo/client/link/schema')
-    const { schema } = require('./schema')
-    return new SchemaLink({ schema, context })
-  } else {
-    const { HttpLink } = require('@apollo/client')
-    return new HttpLink({
-      uri: '/api/graphql',
-      credentials: 'same-origin',
-    })
-  }
-}
-
 function createApolloClient(context?: ResolverContext) {
   return new ApolloClient({
+    uri: 'https://api-eu-central-1.graphcms.com/v2/ckjpnzxc4la3y01z1fplqd8oj/master',
+    headers: {
+      authorization: `Bearer ${process.env.FRIEDL_RECIPES_DRAFT_TOKEN}`
+    },
     ssrMode: typeof window === 'undefined',
-    link: createIsomorphLink(context),
     cache: new InMemoryCache(),
   })
 }

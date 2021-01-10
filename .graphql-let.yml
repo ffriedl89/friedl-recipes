@@ -1,6 +1,10 @@
-schema: '**/*.graphqls'
-schemaEntrypoint: 'lib/type-defs.graphqls'
+schema:
+ - https://api-eu-central-1.graphcms.com/v2/ckjpnzxc4la3y01z1fplqd8oj/master:
+    headers:
+        Authorization: Bearer ${FRIEDL_RECIPES_DRAFT_TOKEN}
+
 documents: '**/*.graphql'
+
 plugins:
   - typescript
   - typescript-operations

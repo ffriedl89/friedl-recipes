@@ -1,74 +1,60 @@
-import Link from 'next/link'
-import { useState } from 'react'
 import {
-  useViewerQuery,
-  useUpdateNameMutation,
-  ViewerDocument,
-} from '../lib/viewer.graphql'
-import { initializeApollo } from '../lib/apollo'
+  AllRecipeTitlesDocument,
+  RecipeListItemFragment,
+  useAllRecipeTitlesQuery,
+} from "../queries/Recipe.graphql";
+import { initializeApollo } from "../lib/apollo";
+import Link from "next/link";
+import { Layout } from "../components/Layout";
+import React from "react";
+import { Hero } from "../components/Hero";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  grid-area: main;
+`;
 
 const Index = () => {
-  const { viewer } = useViewerQuery().data!
-  const [newName, setNewName] = useState('')
-  const [updateNameMutation] = useUpdateNameMutation()
+  const { recipes } = useAllRecipeTitlesQuery().data!;
 
-  const onChangeName = () => {
-    updateNameMutation({
-      variables: {
-        name: newName,
-      },
-      //Follow apollo suggestion to update cache
-      //https://www.apollographql.com/docs/angular/features/cache-updates/#update
-      update: (
-        store,
-        {
-          data: {
-            updateName: { name },
-          },
-        }
-      ) => {
-        // Read the data from our cache for this query.
-        const { viewer } = store.readQuery({ query: ViewerDocument })
-        const newViewer = { ...viewer }
-        // Add our comment from the mutation to the end.
-        newViewer.name = name
-        // Write our data back to the cache.
-        store.writeQuery({ query: ViewerDocument, data: { viewer: newViewer } })
-      },
-    })
-  }
+  const characterGroups = recipes.reduce<{ [key: string]: Set<RecipeListItemFragment> }>((characterGroups, recipe) => {
+    const char = recipe.title.charAt(0);
+    if (!characterGroups[char]) {
+      characterGroups[char] = new Set();
+    }
+    characterGroups[char].add(recipe);
+    return characterGroups;
+  }, {});
 
   return (
-    <div>
-      You're signed in as {viewer.name} and you're {viewer.status}. Go to the{' '}
-      <Link href="/about">
-        <a>about</a>
-      </Link>{' '}
-      page.
-      <div>
-        <input
-          type="text"
-          placeholder="your new name..."
-          onChange={(e) => setNewName(e.target.value)}
-        />
-        <input type="button" value="change" onClick={onChangeName} />
-      </div>
-    </div>
-  )
-}
+    <Layout>
+      <Hero />
+      <StyledContainer>
+        <p>This is a list of all recipes so far.</p>
+        <ul>
+          {Object.keys(characterGroups).map((char) => <li><em>{char}</em>
+            <ul>
+              {Array.from(characterGroups[char]).map((recipe) => <li><Link href={`/rezepte/${recipe.slug}`}><a>{recipe.title}</a></Link></li>)}
+            </ul>
+          </li>)}
+        </ul>
+      </StyledContainer>
+    </Layout>
+  );
+};
 
 export async function getStaticProps() {
-  const apolloClient = initializeApollo()
+  const apolloClient = initializeApollo();
 
   await apolloClient.query({
-    query: ViewerDocument,
-  })
+    query: AllRecipeTitlesDocument,
+  });
 
   return {
     props: {
       initialApolloState: apolloClient.cache.extract(),
     },
-  }
+  };
 }
 
-export default Index
+export default Index;

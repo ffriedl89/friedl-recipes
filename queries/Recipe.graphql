@@ -1,0 +1,67 @@
+fragment recipeListItem on Recipe {
+  title
+  slug
+}
+
+query AllRecipeTitles {
+  recipes(orderBy: title_ASC) {
+    ...recipeListItem
+  }
+}
+
+query AllRecipeSlugs {
+  recipes {
+    slug
+  }
+}
+
+query RecipeBySlug($slug: String) {
+  recipe(where: { slug: $slug }) {
+    title
+    portions
+    ingredients {
+      measurement
+      unit
+      ingredientItem {
+        name
+        bestPlaceToBuy
+      }
+    }
+    subTasks {
+      name
+      ingredients {
+        measurement
+        unit
+        ingredientItem {
+          name
+          bestPlaceToBuy
+        }
+      }
+    }
+    instructions
+    recipes {
+      title
+      portions
+      ingredients {
+        measurement
+        unit
+        ingredientItem {
+          name
+          bestPlaceToBuy
+        }
+      }
+      subTasks {
+        name
+        ingredients {
+          measurement
+          unit
+          ingredientItem {
+            name
+            bestPlaceToBuy
+          }
+        }
+      }
+      instructions
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "https://api-eu-central-1.graphcms.com/v2/ckjpnzxc4la3y01z1fplqd8oj/master",
+  "extensions": {
+    "endpoints": {
+      "default": {
+        "url": "https://api-eu-central-1.graphcms.com/v2/ckjpnzxc4la3y01z1fplqd8oj/master",
+        "headers": { "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2MTAyMDA3MDQsImF1ZCI6WyJodHRwczovL2FwaS1ldS1jZW50cmFsLTEuZ3JhcGhjbXMuY29tL3YyL2NranBuenhjNGxhM3kwMXoxZnBscWQ4b2ovbWFzdGVyIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiYzc0ODlmMGQtODcxMC00OGNkLTlhYTQtNWMwZDY3Y2MxZGM2IiwianRpIjoiY2tqcHJ4YjZhbWs2cjAxemZlOHRpOHcyNSJ9.YrssV6pm-OhelUCQdsWUAZV_A97u2Mg9B9H1lgUnFl917G070tc6Q23a9ZRngu-IaKabyq86rs1qqYWrdloOSU2kL-9-XFZDdosfwPcLXv-81N2JRX7OKPUWbidmgWRveUwqPj70ci8rowbz2Y7j8epUOYF13O4r9y2CopuSaTouTaCeRJ-Fj8GIbG02r6HCL3zIy3AIjNUVzBvqCkMXGg8_797fSsDtjEBOsTR3vZN4j91RMFCn435AnSD17ABKmp_QynvDjGe-_S0gi9JrDa2s3mx3VdsYeTxx22iKpAOhTvpFlj-tR7UKWsQsL72vOhsznyNH2ceN52paym8pQUdvGEp9KTtaPyF7I0er8Gc7qag4nvqTUoYlnVneNdK_qdcB2MUaAvMmYxknElmorbusKCWcKX5BjULSdqVW4RQd3b6q1XueVeVNjzLUPkqAfsRu-WzdEwDO9IHHquJ2QT5DEFXY7ibEmxpcn8kb6FlYoyB-TQCdhCzxAdFAwJxQZZMjPmydWalBB8QTnTxetOEhJi42DNXAXtRLuyQc3mm6zEsPWAPSBWki71t0gh6744t5_2lrKefPHLEVg6V3-nqpWX8sjw54ZSexyBgDI3PzrmgIfy-WoiepT9lBTpJIno31yWbACQCbuUvnoNTCcz3FoT1Gea-MVnGIPin2N1c" }
+      }
+    }
+  }
+}
