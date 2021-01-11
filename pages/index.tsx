@@ -1,4 +1,5 @@
 import {
+  AllRecipeTitlesDocument,
   RecipeListItemFragment,
   useAllRecipeTitlesQuery,
 } from "../queries/Recipe.graphql";
@@ -8,6 +9,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import { Heading } from "../components/Heading";
 import Head from "next/head";
+import { initializeApollo } from "../lib/apollo";
 
 const StyledContainer = styled.div`
   grid-area: main;
@@ -68,7 +70,7 @@ const Index = () => {
         </StyledOrderedList>
       </StyledContainer>
     </Layout>
-    </meta>
+    </>
   );
 };
 
