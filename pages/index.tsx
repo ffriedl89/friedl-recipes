@@ -55,6 +55,7 @@ const Index = () => {
   return (
     <>
     <Head>
+      <title>Monikas Rezepte</title>
       <meta name="Description" content="Landingpage mit Übersicht der Rezepte" />
     </Head>
     <Layout>
