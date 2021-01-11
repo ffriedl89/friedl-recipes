@@ -1,14 +1,13 @@
 import {
-  AllRecipeTitlesDocument,
   RecipeListItemFragment,
   useAllRecipeTitlesQuery,
 } from "../queries/Recipe.graphql";
-import { initializeApollo } from "../lib/apollo";
 import { Layout } from "../components/Layout";
 import { Hero } from "../components/Hero";
 import styled from "styled-components";
 import Link from "next/link";
 import { Heading } from "../components/Heading";
+import Head from "next/head";
 
 const StyledContainer = styled.div`
   grid-area: main;
@@ -52,6 +51,10 @@ const Index = () => {
   }, {});
 
   return (
+    <>
+    <Head>
+      <meta name="Description" content="Landingpage mit Übersicht der Rezepte" />
+    </Head>
     <Layout>
       <Hero />
       <StyledContainer>
@@ -65,6 +68,7 @@ const Index = () => {
         </StyledOrderedList>
       </StyledContainer>
     </Layout>
+    </meta>
   );
 };
 

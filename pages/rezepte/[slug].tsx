@@ -13,6 +13,7 @@ import { Ingredient } from '../../components/Ingredient';
 import { BackNav } from "../../components/BackNav";
 import { Layout } from "../../components/Layout";
 import { HeaderBar } from "../../components/HeaderBar";
+import Head from "next/head";
 
 //#region styled components
 const StyledInstructions = styled.div`
@@ -56,6 +57,11 @@ const StyledRecipe = styled.article`
 const Recipe = ({ slug }: { slug: string }) => {
   const { recipe } = useRecipeBySlugQuery({ variables: { slug } }).data!;
   return (
+    <>
+    <Head>
+      <title>{recipe?.title}</title>
+      <meta name="Description" content={ `Rezept für ${recipe?.title}`} />
+    </Head>
     <Layout>
       <HeaderBar />
       <BackNav />
@@ -81,6 +87,7 @@ const Recipe = ({ slug }: { slug: string }) => {
         </StyledInstructions>
       </StyledRecipe>
     </Layout>
+    </>
   );
 };
 
